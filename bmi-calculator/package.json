@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "ts-node": "ts-node",
-    "CalculateBmi": "npm run ts-node -- bmiCalculator"
+    "CalculateBmi": "npm run ts-node -- bmiCalculator",
+    "CalculateExercises": "npm run ts-node -- exerciseCalculator.ts"
   },
   "keywords": [],
   "author": "",
