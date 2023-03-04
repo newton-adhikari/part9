@@ -32,7 +32,7 @@ const parseArgs = (params: string[]) : TargetAndDaily => {
     }
 }
 
-const calculateExercises = (target: number, dailExercises: number[]) : ExerciseResult => {
+export const calculateExercises = (target: number, dailExercises: number[]) : ExerciseResult => {
     const periodLength = dailExercises.length;
     const trainingDays = dailExercises.filter(e => {
         if (e !== 0) return true
