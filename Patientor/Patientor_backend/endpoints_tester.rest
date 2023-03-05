@@ -1,1 +1,5 @@
 get http://localhost:7008/api/ping
+
+###
+
+get http://localhost:7008/api/diagnoses
