@@ -2,7 +2,11 @@ export type DiagnoseWithoutLatin = Omit<Diagnose, "latin">;
 
 export type PatientWithoutSSN = Omit<Patient, "ssn">;
 
-export type Gender = "male" | "female" | "other";
+export enum Gender {
+    Male = "male",
+    Female = "female",
+    Other = "other"
+};
 
 export interface Diagnose {
     code: string,

@@ -7,3 +7,15 @@ get http://localhost:7008/api/diagnoses
 ###
 
 get http://localhost:7008/api/patients
+
+###
+post http://localhost:7008/api/patients
+content-type: application/json
+
+{
+    "name": "Matti Luukkainen",
+    "dateOfBirth": "1971-04-09",
+    "ssn": "090471-8890",
+    "gender": "male",
+    "occupation": "Digital evangelist"
+}
