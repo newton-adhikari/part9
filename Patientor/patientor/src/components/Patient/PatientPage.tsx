@@ -6,7 +6,7 @@ interface props {
 }
 
 const PatientPage = ({patients}: props) => {
-    const id = useParams().id;
+    const id = useParams().id as string;
     const patient: Patient = patients.find(p => p.id === id) as Patient;
 
     return <>

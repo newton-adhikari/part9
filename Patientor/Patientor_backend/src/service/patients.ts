@@ -6,12 +6,13 @@ const getAllPatients = () : Patient[] => {
 }
 
 const getPatientsWithoutSsn = () : PatientWithoutSSN[] => {
-    return PatientsList.map(({id, name, dateOfBirth, gender, occupation}) => ({
+    return PatientsList.map(({id, name, dateOfBirth, gender, occupation, entries}) => ({
         id,
         name,
         dateOfBirth,
         gender,
-        occupation
+        occupation,
+        entries
     }))
 }
 

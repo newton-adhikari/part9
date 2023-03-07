@@ -1,4 +1,4 @@
-import { Patient, Gender } from "./types";
+import { Patient, Gender, Entry } from "./types";
 import { v1 as uuid } from "uuid";
 
 const isString = (text: unknown): text is string=> {
@@ -57,7 +57,7 @@ const toNewPatient = (object: unknown): Patient => {
         throw new Error('Incorrect or missing data');
     }
 
-    if ("name" in object && "dateOfBirth" in object && "ssn" in object && "gender" in object && "occupation" in object) {
+    if ("name" in object && "dateOfBirth" in object && "ssn" in object && "gender" in object && "occupation" in object && "entries" in object) {
         const newPatient: Patient = {
             id: uuid(),
             name: parseName(object.name),
@@ -65,7 +65,7 @@ const toNewPatient = (object: unknown): Patient => {
             ssn: parseSsn(object.ssn),
             gender: parseGender(object.gender),
             occupation: parseOccupation(object.occupation),
-            entries: []
+            entries: object.entries as Entry[]
         }
 
         return newPatient;
