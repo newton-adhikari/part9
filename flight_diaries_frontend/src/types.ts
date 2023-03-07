@@ -13,6 +13,8 @@ export enum Visibility {
     Poor= "poor"
 }
 
+export type NewDiaryEntry = Omit<DiaryEntry, "id">;
+
 export interface DiaryEntry {
     id: number;
     date: string;

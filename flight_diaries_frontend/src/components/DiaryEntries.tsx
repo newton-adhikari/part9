@@ -5,7 +5,6 @@ interface DiaryEntryArray {
 }
 
 const DiaryEntries = (props: DiaryEntryArray) => {
-    console.log(props.allDiaryEntries);
     return <>{props.allDiaryEntries.map(d => {
         return <div key={d.id}>
             <h2>{d.date}</h2>
