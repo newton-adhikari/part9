@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import diaryService from "./service/diaryService";
 import { DiaryEntry } from "./types";
 import DiaryEntries from "./components/DiaryEntries";
@@ -48,15 +48,35 @@ const App = () => {
           setMessage(error.message);
         }
       })
+
+      setDate("");
+      setVisibility("great");
+      setWeather("sunny");
+      setCommeent("");
   }
+
+  const getWeather = () => <>weather {Object.values(Weather).map(w => {
+    return <Fragment key={w}>
+      <label htmlFor={w}>{w}</label>
+      <input type="radio" id={w} name="weather" value={w} onChange={({target}) => setWeather(target.value)} />
+    </Fragment>
+  })}</>
+
+  const getVisibility = () => <>visibility {Object.values(Visibility).map(w => {
+    return <Fragment key={w}>
+      <label htmlFor={w}>{w} k</label>
+      <input type="radio" id={w} name="visiblity" value={w} onChange={({target}) => setVisibility(target.value)} />
+    </Fragment>
+  })}</>
 
   return (
     <>
       <h2>Add new entry</h2>
       {error? <Notification text={message} /> : null}
       <form onSubmit={addNewEntry}>
-        <div>weather <input value={dweather} onChange={({target}) => setWeather(target.value)} type="text" /></div>
-        <div>visibility <input value={dvisibility} onChange={({target}) => setVisibility(target.value)} type="text" /></div>
+        {getWeather()}
+        <br />
+        {getVisibility()}
         <div>date <input value={date} onChange={({target}) => setDate(target.value)} type="date" /></div>
         <div>comment <input value={comment} onChange={({target}) => setCommeent(target.value)} type="text" /></div>
         <button type="submit">add</button>
