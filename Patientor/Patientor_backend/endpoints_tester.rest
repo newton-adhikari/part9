@@ -9,6 +9,9 @@ get http://localhost:7008/api/diagnoses
 get http://localhost:7008/api/patients
 
 ###
+get http://localhost:7008/api/patients/68395d42-bcf6-11ed-ba12-87b4d58dd096
+
+###
 post http://localhost:7008/api/patients
 content-type: application/json
 
