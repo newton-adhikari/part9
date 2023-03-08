@@ -37,8 +37,6 @@ router.post("/", (req, res) => {
 
 router.post("/:id/entries", (req, res) => {
     try {
-        const body = req.body;
-        console.log(body);
         const newEntry = toNewEntry(req.body);
         //find the patient
         //push the entry in the patient

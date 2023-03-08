@@ -11,6 +11,7 @@ export enum Gender {
 }
 
 export type PatientFormValues = Omit<Patient, "id" | "entries">;
+export type EntryFormValues = Omit<HealthCheckEntry, "id">
 
 export interface Diagnose {
   code: string,

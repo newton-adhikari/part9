@@ -1,13 +1,15 @@
 import {Diagnose, Patient} from "../../types";
 import { useParams } from "react-router-dom";
 import EntryPage from "../Entry/EntryPage";
+import NewHealthCheckEntry from "./NewHealthCheckEntry";
 
 interface props {
+    setPatient: React.Dispatch<React.SetStateAction<Patient[]>>,
     patients: Patient[],
     codes: Diagnose[]
 }
 
-const PatientPage = ({patients, codes}: props) => {
+const PatientPage = ({patients, setPatient, codes}: props) => {
     const id = useParams().id as string;
     const patient: Patient = patients.find(p => p.id === id) as Patient;
 
@@ -16,6 +18,7 @@ const PatientPage = ({patients, codes}: props) => {
         <p>ssn {patient.ssn}</p>
         <p>occupation {patient.occupation}</p>
         <h3>entries</h3>
+        <NewHealthCheckEntry id={id} patients={patients} setPatient={setPatient} />
         {patient.entries.map(e => {
             return <EntryPage key={e.id} entry={e} />
             // return <div key={e.id}>
