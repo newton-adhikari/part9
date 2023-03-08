@@ -1,5 +1,6 @@
 import {Diagnose, Patient} from "../../types";
 import { useParams } from "react-router-dom";
+import EntryPage from "../Entry/EntryPage";
 
 interface props {
     patients: Patient[],
@@ -16,12 +17,13 @@ const PatientPage = ({patients, codes}: props) => {
         <p>occupation {patient.occupation}</p>
         <h3>entries</h3>
         {patient.entries.map(e => {
-            return <div key={e.id}>
-                <p>{e.date} {e.description}</p>
-                <ul>
-                    {e.diagnosisCodes?.map(c => <li key={c}>{c} {codes.filter(co => co.code === c)[0].name}</li>)}
-                </ul>
-            </div>
+            return <EntryPage key={e.id} entry={e} />
+            // return <div key={e.id}>
+            //     <p>{e.date} {e.description}</p>
+            //     <ul>
+            //         {e.diagnosisCodes?.map(c => <li key={c}>{c} {codes.filter(co => co.code === c)[0].name}</li>)}
+            //     </ul>
+            // </div>
         })}
     </>
 }

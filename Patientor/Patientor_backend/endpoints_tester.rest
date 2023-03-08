@@ -23,3 +23,14 @@ content-type: application/json
     "occupation": "Digital evangelist"
 }
 
+###
+post http://localhost:7008/api/patients/d9330fb0-bd7c-11ed-b6a5-9b4c18712315/entries
+Content-Type: application/json
+
+{
+    "date": "2019-10-20",
+    "specialist": "MD House",
+    "type": "HealthCheck",
+    "description": "Yearly control visit. Cholesterol levels back to normal.",
+    "healthCheckRating": 0
+}

@@ -14,7 +14,7 @@ export interface Diagnose {
     latin?: string
 }
 
-interface BaseEntry {
+export interface BaseEntry {
     id: string;
     description: string;
     date: string;
@@ -36,7 +36,7 @@ interface HealthCheckEntry extends BaseEntry {
 
 interface HospitalEntry extends BaseEntry {
     type: "Hospital",
-    discharge: {
+    discharge?: {
         date: string,
         criteria: string
     },
@@ -52,6 +52,10 @@ interface OccupationalHealthcareEntry extends BaseEntry {
     },
     healthCheckRating?: HealthCheckRating 
 }
+
+type UnionOmit<T, K extends string | number | symbol> = T extends unknown ? Omit<T, K> : never;
+// Define Entry without the 'id' property
+export type EntryToBeReturned = UnionOmit<Entry, 'type'>;
 
 export type Entry =
   | HospitalEntry
